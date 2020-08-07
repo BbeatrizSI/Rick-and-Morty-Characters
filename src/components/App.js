@@ -3,6 +3,8 @@ import getDataFromApi from '../services/api';
 import Header from './Header';
 import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
+import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import ErrorImage from '../images/error.png';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -13,8 +15,13 @@ const App = () => {
     });
   }, []);
 
-  const renderCharacterDetails = () => {
-    const character = characters[2];
+  const renderCharacterDetails = (props) => {
+    const routeChracterId = Number(props.match.params.id);
+
+    const character = characters.find(
+      (character) => character.id === routeChracterId
+    );
+
     if (character) {
       return (
         <CharacterDetails
@@ -28,14 +35,26 @@ const App = () => {
           gender={character.gender}
         />
       );
+    } else {
+      return (
+        <img
+          src={ErrorImage}
+          alt='Personaje no encontrado'
+          title='Personaje no encontrado'
+        />
+      );
     }
   };
 
   return (
     <div>
       <Header />
-      <CharacterList characters={characters} />
-      {renderCharacterDetails()}
+      <Switch>
+        <Route exact path='/'>
+          <CharacterList characters={characters} />
+        </Route>
+        <Route path='/character/:id' render={renderCharacterDetails} />
+      </Switch>
     </div>
   );
 };
