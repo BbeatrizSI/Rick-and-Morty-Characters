@@ -13,6 +13,7 @@ const Character = (props) => {
         />
         <h2 className='character__name'>{props.name}</h2>
         <h3 className='character__species'>{props.species}</h3>
+        <span className={`character__is${props.status}`}></span>
       </li>
     </Link>
   );

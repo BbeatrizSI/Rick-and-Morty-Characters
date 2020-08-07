@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../images/logo_header.png';
-import Filters from './Filters';
 
 const Header = () => {
   return (
@@ -8,7 +7,6 @@ const Header = () => {
       <div className='header'>
         <img src={logo} alt='Ricky & Morty logo' title='Ricky & Morty logo' />
       </div>
-      <Filters />
     </>
   );
 };

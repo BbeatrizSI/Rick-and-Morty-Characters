@@ -1,7 +1,9 @@
 import React from 'react';
 import Character from './Character';
+import ErrorImage from '../images/error.png';
 
 const CharacterList = (props) => {
+  console.log(props);
   const htmlCode = props.characters.map((character) => {
     return (
       <Character
@@ -10,10 +12,22 @@ const CharacterList = (props) => {
         name={character.name}
         image={character.image}
         species={character.species}
+        status={character.status}
       />
     );
   });
-  return <ul className='characters'>{htmlCode}</ul>;
+
+  if (props.characters.length !== 0) {
+    return <ul className='characters'>{htmlCode}</ul>;
+  } else {
+    return (
+      <img
+        src={ErrorImage}
+        alt='Personaje no encontrado'
+        title='Personaje no encontrado'
+      />
+    );
+  }
 };
 
 export default CharacterList;

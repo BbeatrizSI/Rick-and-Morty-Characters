@@ -4,16 +4,33 @@ import Header from './Header';
 import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
 import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import ErrorImage from '../images/error.png';
+import Filters from './Filters';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+  const [nameFilter, setNameFilter] = useState('');
+  const [speciesFilter, setSpeciesFilter] = useState('all');
+  const [deadFilter, setDeadFilter] = useState(false);
 
   useEffect(() => {
     getDataFromApi().then((data) => {
       setCharacters(data);
     });
   }, []);
+
+  //HANDLER
+
+  const handleFilter = (data) => {
+    if (data.key === 'name') {
+      setNameFilter(data.value);
+    } else if (data.key === 'species') {
+      setSpeciesFilter(data.value);
+    } else if (data.key === 'dead') {
+      setDeadFilter(data.checked);
+    }
+  };
+
+  //RENDER
 
   const renderCharacterDetails = (props) => {
     const routeChracterId = Number(props.match.params.id);
@@ -35,23 +52,35 @@ const App = () => {
           gender={character.gender}
         />
       );
-    } else {
-      return (
-        <img
-          src={ErrorImage}
-          alt='Personaje no encontrado'
-          title='Personaje no encontrado'
-        />
-      );
     }
   };
+
+  const renderFilteredCharacters = characters
+    .filter((character) => {
+      return character.name.toLowerCase().includes(nameFilter.toLowerCase());
+    })
+    .filter((character) => {
+      return speciesFilter === 'all'
+        ? true
+        : character.species === speciesFilter;
+    })
+    .filter((character) => {
+      if (deadFilter === true) {
+        return character.status === 'Dead';
+      } else {
+        return character.status !== '';
+      }
+    });
+
+  console.log(characters);
 
   return (
     <div>
       <Header />
       <Switch>
         <Route exact path='/'>
-          <CharacterList characters={characters} />
+          <Filters handleFilter={handleFilter} />
+          <CharacterList characters={renderFilteredCharacters} />
         </Route>
         <Route path='/character/:id' render={renderCharacterDetails} />
       </Switch>
