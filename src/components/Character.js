@@ -2,7 +2,7 @@ import React from 'react';
 
 const Character = (props) => {
   return (
-    <article className='character'>
+    <li className='character' key={props.id}>
       <img
         src={props.image}
         alt={`Foto de ${props.name}`}
@@ -11,7 +11,7 @@ const Character = (props) => {
       />
       <h2 className='character__name'>{props.name}</h2>
       <h3 className='character__species'>{props.species}</h3>
-    </article>
+    </li>
   );
 };
 
