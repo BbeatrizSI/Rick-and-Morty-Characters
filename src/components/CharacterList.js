@@ -16,9 +16,7 @@ const CharacterList = (props) => {
     );
   });
 
-  if (props.setCharacters && props.characters.length > 1) {
-    return <ul className='characters'>{htmlCode}</ul>;
-  } else {
+  if (htmlCode.length === 0) {
     return (
       <img
         src={ErrorImage}
@@ -26,6 +24,8 @@ const CharacterList = (props) => {
         title='Personaje no encontrado'
       />
     );
+  } else {
+    return <ul className='characters'>{htmlCode}</ul>;
   }
 };
 

@@ -5,6 +5,7 @@ import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
 import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import Filters from './Filters';
+import '../stylesheets/App.scss';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -33,10 +34,10 @@ const App = () => {
   //RENDER
 
   const renderCharacterDetails = (props) => {
-    const routeChracterId = Number(props.match.params.id);
+    const routeCharacterId = Number(props.match.params.id);
 
     const character = characters.find(
-      (character) => character.id === routeChracterId
+      (character) => character.id === routeCharacterId
     );
 
     if (character) {
@@ -70,12 +71,11 @@ const App = () => {
       } else {
         return character.status !== '';
       }
-    });
-
-  console.log(characters);
+    })
+    .sort((a, b) => (a.name > b.name ? 1 : -1));
 
   return (
-    <div>
+    <div className='page'>
       <Header />
       <Switch>
         <Route exact path='/'>
@@ -85,10 +85,7 @@ const App = () => {
             speciesFilter={speciesFilter}
             deadFilter={deadFilter}
           />
-          <CharacterList
-            characters={renderFilteredCharacters}
-            setCharacters={setCharacters}
-          />
+          <CharacterList characters={renderFilteredCharacters} />
         </Route>
         <Route path='/character/:id' render={renderCharacterDetails} />
       </Switch>
