@@ -79,8 +79,16 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path='/'>
-          <Filters handleFilter={handleFilter} />
-          <CharacterList characters={renderFilteredCharacters} />
+          <Filters
+            handleFilter={handleFilter}
+            nameFilter={nameFilter}
+            speciesFilter={speciesFilter}
+            deadFilter={deadFilter}
+          />
+          <CharacterList
+            characters={renderFilteredCharacters}
+            setCharacters={setCharacters}
+          />
         </Route>
         <Route path='/character/:id' render={renderCharacterDetails} />
       </Switch>

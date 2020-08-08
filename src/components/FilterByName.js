@@ -2,7 +2,6 @@ import React from 'react';
 
 const FilterByName = (props) => {
   const handleChange = (ev) => {
-    ev.preventDefault();
     props.handleFilter({
       value: ev.target.value,
       key: 'name',
@@ -18,6 +17,7 @@ const FilterByName = (props) => {
         type='text'
         name='name'
         id='name'
+        value={props.nameFilter}
         placeholder='Search some pals...'
         onChange={handleChange}
       />

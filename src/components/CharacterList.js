@@ -3,7 +3,6 @@ import Character from './Character';
 import ErrorImage from '../images/error.png';
 
 const CharacterList = (props) => {
-  console.log(props);
   const htmlCode = props.characters.map((character) => {
     return (
       <Character
@@ -17,7 +16,7 @@ const CharacterList = (props) => {
     );
   });
 
-  if (props.characters.length !== 0) {
+  if (props.setCharacters && props.characters.length > 1) {
     return <ul className='characters'>{htmlCode}</ul>;
   } else {
     return (

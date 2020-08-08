@@ -18,6 +18,7 @@ const FilterBySpecies = (props) => {
         name='species'
         id='species'
         onChange={handleChange}
+        value={props.speciesFilter}
       >
         <option value='all'>All</option>
         <option value='Human'>Human</option>

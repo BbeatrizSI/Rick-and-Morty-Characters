@@ -4,12 +4,25 @@ import FilterBySpecies from './FilterBySpecies';
 import FilterByDead from './FilterByDead';
 
 const Filters = (props) => {
+  const handleForm = (ev) => {
+    ev.preventDefault();
+  };
+
   return (
     <section>
-      <form>
-        <FilterByName handleFilter={props.handleFilter} />
-        <FilterBySpecies handleFilter={props.handleFilter} />
-        <FilterByDead handleFilter={props.handleFilter} />
+      <form onSubmit={handleForm}>
+        <FilterByName
+          handleFilter={props.handleFilter}
+          nameFilter={props.nameFilter}
+        />
+        <FilterBySpecies
+          handleFilter={props.handleFilter}
+          speciesFilter={props.speciesFilter}
+        />
+        <FilterByDead
+          handleFilter={props.handleFilter}
+          deadFilter={props.deadFilter}
+        />
       </form>
     </section>
   );

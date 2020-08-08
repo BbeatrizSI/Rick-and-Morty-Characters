@@ -15,6 +15,7 @@ const FilterByDead = (props) => {
         type='checkbox'
         name='dead'
         value='dead'
+        checked={props.deadFilter}
         onChange={handleChange}
       />
       These kicked the bucket
