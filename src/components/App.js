@@ -5,6 +5,7 @@ import CharacterList from './CharacterList';
 import CharacterDetails from './CharacterDetails';
 import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import Filters from './Filters';
+import NoMatch from './NoMatch';
 import '../stylesheets/App.scss';
 
 const App = () => {
@@ -87,7 +88,9 @@ const App = () => {
           />
           <CharacterList characters={renderFilteredCharacters} />
         </Route>
-        <Route path='/character/:id' render={renderCharacterDetails} />
+        <Route exact path='/character/:id' render={renderCharacterDetails} />
+        <Route path='/character/*' component={NoMatch} />
+        <Route path='*' component={NoMatch} />
       </Switch>
     </div>
   );
