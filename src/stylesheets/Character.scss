@@ -1,0 +1,20 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+
+.character {
+  background-color: $color-tertiary;
+  border-radius: 10px;
+
+  &__container--image {
+    background-color: $color-secondary;
+
+    .character__image {
+      opacity: 0.4;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

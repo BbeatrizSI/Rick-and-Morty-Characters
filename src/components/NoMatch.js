@@ -1,5 +1,6 @@
 import React from 'react';
 import peace from '../images/peace.jpg';
+import '../stylesheets/NoMatch.scss';
 
 const NoMatch = () => {
   return (

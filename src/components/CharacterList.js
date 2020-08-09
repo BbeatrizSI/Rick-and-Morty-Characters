@@ -1,6 +1,7 @@
 import React from 'react';
 import Character from './Character';
 import ErrorImage from '../images/error.png';
+import '../stylesheets/CharacterList.scss';
 
 const CharacterList = (props) => {
   const htmlCode = props.characters.map((character) => {

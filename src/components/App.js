@@ -54,6 +54,8 @@ const App = () => {
           gender={character.gender}
         />
       );
+    } else {
+      return <NoMatch />;
     }
   };
 
@@ -67,11 +69,9 @@ const App = () => {
         : character.species === speciesFilter;
     })
     .filter((character) => {
-      if (deadFilter === true) {
-        return character.status === 'Dead';
-      } else {
-        return character.status !== '';
-      }
+      return deadFilter === true
+        ? character.status === 'Dead'
+        : character.status !== '';
     })
     .sort((a, b) => (a.name > b.name ? 1 : -1));
 
@@ -89,7 +89,6 @@ const App = () => {
           <CharacterList characters={renderFilteredCharacters} />
         </Route>
         <Route exact path='/character/:id' render={renderCharacterDetails} />
-        <Route path='/character/*' component={NoMatch} />
         <Route path='*' component={NoMatch} />
       </Switch>
     </div>

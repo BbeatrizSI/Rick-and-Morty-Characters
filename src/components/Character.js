@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../stylesheets/Character.scss';
 
 const Character = (props) => {
   const statusIcon = () => {
@@ -22,12 +23,14 @@ const Character = (props) => {
   return (
     <Link to={`/character/${props.id}`}>
       <li className='character' key={props.id}>
-        <img
-          src={props.image}
-          alt={`Foto de ${props.name}`}
-          title={`Foto de ${props.name}`}
-          className='character__image'
-        />
+        <div className='character__container--image'>
+          <img
+            src={props.image}
+            alt={`Foto de ${props.name}`}
+            title={`Foto de ${props.name}`}
+            className='character__image'
+          />
+        </div>
         <h2 className='character__name'>{props.name}</h2>
         <span
           className='character__species'
