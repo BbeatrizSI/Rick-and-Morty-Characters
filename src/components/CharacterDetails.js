@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../stylesheets/CharacterDetails.scss';
 
 const CharacterDetails = (props) => {
   return (
@@ -16,12 +17,12 @@ const CharacterDetails = (props) => {
         />
         <h2 className='character__details--name'>{props.name}</h2>
         <h3 className='character__details--species'>{props.species}</h3>
-        <p>
-          {props.planet}
-          {props.status}
-          {props.episodes}
-          {props.type}
-          {props.gender}
+        <p className='description'>
+          From <span className='bold'>{props.planet}</span>, now is
+          <span className='bold'> {props.status}</span>. Of
+          <span className='bold'> {props.gender}</span> gender. Appears in
+          <span className='bold'> {props.episodes}</span> episodes.
+          <span className='bold'> {props.type}</span>
         </p>
       </div>
     </article>

@@ -3,6 +3,12 @@
 @import 'mixins';
 
 .page {
+  min-height: 100vh;
   height: 100%;
+  width: 100%;
   background: url(../images/background.png) repeat-y fixed;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

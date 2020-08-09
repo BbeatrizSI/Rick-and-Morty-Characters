@@ -3,17 +3,70 @@
 @import 'mixins';
 
 .character {
-  background-color: $color-tertiary;
+  background-color: rgba(0, 176, 200, 0.8);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 8px 6px $color-placeholder;
+  height: 210px;
+  width: 135px;
+  transition: all ease 0.8s;
+
+  @include tablet {
+    height: 300px;
+    width: 210px;
+    margin-left: 10px;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 10px 8px $color-primary;
+  }
 
   &__container--image {
+    margin-top: 10px;
+    border-radius: 50%;
     background-color: $color-secondary;
+    margin-bottom: 6px;
 
     .character__image {
-      opacity: 0.4;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 8px 6px $color-placeholder;
 
-      &:hover {
-        opacity: 1;
+      @include tablet {
+        height: 190px;
+      }
+    }
+  }
+
+  &__name {
+    color: $color-dark;
+    font-family: $font-primary;
+    font-size: 16px;
+    text-align: center;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  .icons__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2px;
+    .character__species {
+      display: inline-block;
+      @include tablet {
+        font-size: 20px;
+      }
+    }
+    .character__status {
+      display: inline-block;
+      @include tablet {
+        font-size: 20px;
       }
     }
   }

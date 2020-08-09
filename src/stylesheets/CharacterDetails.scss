@@ -1,0 +1,89 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+
+.character__details {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 10px;
+  background-color: rgba(0, 176, 200, 0.5);
+  box-shadow: 0px 0px 8px 6px $color-placeholder;
+  border-radius: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 370px;
+  width: 300px;
+
+  @include tablet {
+    height: 490px;
+    width: 460px;
+  }
+
+  &--return {
+    background-color: $color-placeholder;
+    border-radius: 5px;
+    color: $color-light;
+    font-family: $font-primary;
+    font-size: 20px;
+    padding: 4px 8px;
+    margin-top: 10px;
+    text-shadow: 1px 2px 2px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 5px 1px $color-shadow;
+    transition: all ease 0.3s;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-placeholder;
+      text-shadow: 1px 2px 2px rgba(42, 42, 42, 0.5);
+    }
+  }
+  &--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .character__details--image {
+      border-radius: 50%;
+      box-shadow: 0px 0px 8px 6px $color-placeholder;
+      height: 150px;
+      width: 150px;
+
+      @include tablet {
+        height: 300px;
+        width: 300px;
+      }
+    }
+    .character__details--name {
+      font-family: $font-primary;
+      font-size: 24px;
+      color: $color-primary;
+      text-shadow: 1px 2px 2px rgba(42, 42, 42, 0.5);
+      margin-top: 10px;
+    }
+    .character__details--species {
+      font-family: $font-primary;
+      font-size: 20px;
+      color: $color-secondary;
+      text-shadow: 1px 2px 2px rgba(42, 42, 42, 0.5);
+    }
+    .description {
+      font-family: $font-primary;
+      font-size: 16px;
+      color: $color-light;
+      text-shadow: 1px 1px 2px rgba(42, 42, 42, 0.5);
+      .bold {
+        font-family: $font-primary;
+        color: rgb(226, 226, 125);
+        font-size: 18px;
+      }
+    }
+  }
+}

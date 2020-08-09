@@ -1,0 +1,20 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+  width: 100%;
+
+  &__logo {
+    width: 270px;
+
+    @include tablet {
+      width: 400px;
+      margin-top: 10px;
+    }
+  }
+}

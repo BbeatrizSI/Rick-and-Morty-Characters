@@ -2,6 +2,7 @@ import React from 'react';
 import FilterByName from './FilterByName';
 import FilterBySpecies from './FilterBySpecies';
 import FilterByDead from './FilterByDead';
+import '../stylesheets/Filters.scss';
 
 const Filters = (props) => {
   const handleForm = (ev) => {
@@ -15,14 +16,16 @@ const Filters = (props) => {
           handleFilter={props.handleFilter}
           nameFilter={props.nameFilter}
         />
-        <FilterBySpecies
-          handleFilter={props.handleFilter}
-          speciesFilter={props.speciesFilter}
-        />
-        <FilterByDead
-          handleFilter={props.handleFilter}
-          deadFilter={props.deadFilter}
-        />
+        <div className='filters__container'>
+          <FilterBySpecies
+            handleFilter={props.handleFilter}
+            speciesFilter={props.speciesFilter}
+          />
+          <FilterByDead
+            handleFilter={props.handleFilter}
+            deadFilter={props.deadFilter}
+          />
+        </div>
       </form>
     </section>
   );

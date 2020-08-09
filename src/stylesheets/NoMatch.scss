@@ -4,5 +4,48 @@
 
 .NoMatch {
   height: 100%;
-  border: 1px solid red;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include desktop {
+    margin-top: -10px;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-family: $font-primary;
+    color: $color-light;
+    text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin: 20px auto 20px;
+
+    @include desktop {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .title__desktop {
+      display: none;
+
+      @include tablet {
+        display: inline-block;
+      }
+    }
+  }
+  .title__desktop2 {
+    @include tablet {
+      display: none;
+    }
+  }
+  &__image {
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+
+    @include desktop {
+      width: 60%;
+    }
+  }
 }

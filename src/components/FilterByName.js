@@ -1,4 +1,5 @@
 import React from 'react';
+import '../stylesheets/FilterByName.scss';
 
 const FilterByName = (props) => {
   const handleChange = (ev) => {
@@ -9,7 +10,7 @@ const FilterByName = (props) => {
   };
   return (
     <>
-      <label className='form__label' htmlFor='name'>
+      <label className='form__label--name' htmlFor='name'>
         "Welcome to the club!"
       </label>
       <input

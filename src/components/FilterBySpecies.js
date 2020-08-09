@@ -1,4 +1,5 @@
 import React from 'react';
+import '../stylesheets/FilterBySpecies.scss';
 
 const FilterBySpecies = (props) => {
   const handleChange = (ev) => {
@@ -9,7 +10,7 @@ const FilterBySpecies = (props) => {
   };
   return (
     <>
-      <label className='form__label display-block' htmlFor='species'>
+      <label className='form__label' htmlFor='species'>
         Species:
       </label>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../stylesheets/FilterByDead.scss';
 
 const FilterByDead = (props) => {
   const handleChange = (ev) => {

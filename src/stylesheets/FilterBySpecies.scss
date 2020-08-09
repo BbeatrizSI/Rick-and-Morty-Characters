@@ -1,0 +1,35 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+
+.form__label {
+  font-size: 14px;
+  font-family: $font-secondary;
+  color: $color-light;
+  text-shadow: 1px 2px 2px rgba(255, 255, 255, 0.5);
+  margin-right: 5px;
+
+  @include tablet {
+    margin-left: 10px;
+  }
+}
+.form__select {
+  color: $color-placeholder;
+  font-family: $font-secondary;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: $color-secondary;
+  border-radius: 5px;
+  margin-right: 5px;
+
+  &:focus {
+    outline: none;
+    outline-width: 0;
+  }
+  option {
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+}

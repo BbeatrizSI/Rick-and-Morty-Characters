@@ -1,0 +1,24 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .filters__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}

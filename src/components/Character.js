@@ -32,18 +32,20 @@ const Character = (props) => {
           />
         </div>
         <h2 className='character__name'>{props.name}</h2>
-        <span
-          className='character__species'
-          title={`${props.name} is from ${props.species} species`}
-        >
-          {speciesIcon()}
-        </span>
-        <span
-          className='character__status'
-          title={`${props.name} is ${props.status}`}
-        >
-          {statusIcon()}
-        </span>
+        <div className='icons__container'>
+          <span
+            className='character__species'
+            title={`${props.name} is from ${props.species} species`}
+          >
+            {speciesIcon()}
+          </span>
+          <span
+            className='character__status'
+            title={`${props.name} is ${props.status}`}
+          >
+            {statusIcon()}
+          </span>
+        </div>
       </li>
     </Link>
   );
