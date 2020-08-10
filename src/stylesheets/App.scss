@@ -5,9 +5,9 @@
 .page {
   min-height: 100vh;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   background: url(../images/background.jpg) repeat fixed;
-  background-size: cover;
+  background-size: auto;
   padding: 15px;
   display: flex;
   flex-direction: column;
