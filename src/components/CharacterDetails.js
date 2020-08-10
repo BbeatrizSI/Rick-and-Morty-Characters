@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../stylesheets/CharacterDetails.scss';
 
 const CharacterDetails = (props) => {
+  // Utilizo <Link> para volver a la página principal.
   return (
     <article className='character__details' key={props.id}>
       <Link to='/'>

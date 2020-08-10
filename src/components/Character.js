@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../stylesheets/Character.scss';
 
 const Character = (props) => {
+  // Genero 2 funciones para determinar los iconos de especie y estatus en función de cual sea cada uno.
   const statusIcon = () => {
     if (props.status === 'Dead') {
       return <i className='fas fa-skull-crossbones'></i>;
@@ -13,14 +14,15 @@ const Character = (props) => {
     }
   };
   const speciesIcon = () => {
-    if (props.species === 'Alien') {
-      return <i className='fas fa-pastafarianism'></i>;
-    } else {
-      return <i className='fas fa-male'></i>;
-    }
+    return props.species === 'Alien' ? (
+      <i className='fas fa-pastafarianism'></i>
+    ) : (
+      <i className='fas fa-male'></i>
+    );
   };
 
   return (
+    // Se envuelve todo el JSX en <Link> (React-Router).
     <Link to={`/character/${props.id}`}>
       <li className='character' key={props.id}>
         <div className='character__container--image'>

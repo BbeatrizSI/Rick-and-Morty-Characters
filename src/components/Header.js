@@ -4,6 +4,7 @@ import logo from '../images/logo_header.png';
 import '../stylesheets/Header.scss';
 
 const Header = () => {
+  // Dejo el logo como enlace a la página principal.
   return (
     <>
       <div className='header'>

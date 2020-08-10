@@ -6,7 +6,8 @@
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  background: url(../images/background.png) repeat-y fixed;
+  background: url(../images/background.jpg) repeat fixed;
+  background-size: cover;
   padding: 15px;
   display: flex;
   flex-direction: column;

@@ -9,11 +9,13 @@ import NoMatch from './NoMatch';
 import '../stylesheets/App.scss';
 
 const App = () => {
+  //Creo el estado inicial de characters (con un hook) como un array vacío. También los estados iniciales de los 3 filtros.
   const [characters, setCharacters] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
   const [speciesFilter, setSpeciesFilter] = useState('all');
   const [deadFilter, setDeadFilter] = useState(false);
 
+  //Fetch del Api y modifico el estado de characters con los datos recibidos (array vacío 2ºparámetro para evitar bucle infinito)
   useEffect(() => {
     getDataFromApi().then((data) => {
       setCharacters(data);
@@ -21,7 +23,7 @@ const App = () => {
   }, []);
 
   //HANDLER
-
+  // Función que paso por props a los filters y que me devuelven por lifting los valores de los inputs. Modifico el estado de cada filter.
   const handleFilter = (data) => {
     if (data.key === 'name') {
       setNameFilter(data.value);
@@ -33,7 +35,7 @@ const App = () => {
   };
 
   //RENDER
-
+  // Función que compara el id del personaje que clickeo con los id de todos para localizar cual es. Si existe retorna el componente de Detalle, si no el de NoMatch (siempre va a estar).
   const renderCharacterDetails = (props) => {
     const routeCharacterId = Number(props.match.params.id);
 
@@ -59,6 +61,7 @@ const App = () => {
     }
   };
 
+  // Función que concatena los filtros de nombre, especie y muerte y ordena el resultado alfabéticamente.
   const renderFilteredCharacters = characters
     .filter((character) => {
       return character.name.toLowerCase().includes(nameFilter.toLowerCase());
@@ -75,6 +78,11 @@ const App = () => {
     })
     .sort((a, b) => (a.name > b.name ? 1 : -1));
 
+  // Estructura html en JSX
+  // Filters: le paso la función manejadora y los estados de los 3 filtros por props para completar el ciclo de datos de los inputs en React.
+  // CharacterList: le paso por props la info de los personajes filtrada y ordenada.
+  // CharacterDetails: le asigno la ruta definida en Characters con React-Router y pinto el resultado de la función renderCharacterDetails.
+  // Al componente NoMatch también le asigno una ruta "*" para que si se navega a una ruta no existente se pinte.
   return (
     <div className='page'>
       <Header />

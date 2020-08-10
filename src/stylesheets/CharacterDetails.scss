@@ -22,8 +22,8 @@
   width: 300px;
 
   @include tablet {
-    height: 490px;
-    width: 460px;
+    height: 560px;
+    width: 480px;
   }
 
   &--return {
@@ -67,22 +67,34 @@
       color: $color-primary;
       text-shadow: 1px 2px 2px rgba(42, 42, 42, 0.5);
       margin-top: 10px;
+      @include tablet {
+        font-size: 32px;
+      }
     }
     .character__details--species {
       font-family: $font-primary;
       font-size: 20px;
       color: $color-secondary;
       text-shadow: 1px 2px 2px rgba(42, 42, 42, 0.5);
+      @include tablet {
+        font-size: 24px;
+      }
     }
     .description {
       font-family: $font-primary;
       font-size: 16px;
       color: $color-light;
       text-shadow: 1px 1px 2px rgba(42, 42, 42, 0.5);
+      @include tablet {
+        font-size: 20px;
+      }
       .bold {
         font-family: $font-primary;
         color: rgb(226, 226, 125);
         font-size: 18px;
+        @include tablet {
+          font-size: 24px;
+        }
       }
     }
   }

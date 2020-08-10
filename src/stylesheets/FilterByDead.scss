@@ -1,3 +1,16 @@
 @import 'reset';
 @import 'vars';
 @import 'mixins';
+
+.form__checkbox {
+  @include tablet {
+    transform: scale(1.2);
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+  @include desktop {
+    transform: scale(1.5);
+    margin-right: 15px;
+    margin-left: 10px;
+  }
+}

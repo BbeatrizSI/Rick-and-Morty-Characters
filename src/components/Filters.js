@@ -5,6 +5,7 @@ import FilterByDead from './FilterByDead';
 import '../stylesheets/Filters.scss';
 
 const Filters = (props) => {
+  // Creo esta función para prevenir el envío del formulario al pulsar enter en los input.
   const handleForm = (ev) => {
     ev.preventDefault();
   };
