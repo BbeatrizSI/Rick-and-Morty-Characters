@@ -37,7 +37,7 @@ Filters.propTypes = {
   handleFilter: PropTypes.func,
   nameFilter: PropTypes.string,
   speciesFilter: PropTypes.string,
-  deadFilter: PropTypes.string,
+  deadFilter: PropTypes.bool,
 };
 
 export default Filters;

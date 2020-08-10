@@ -59,7 +59,7 @@ Character.propTypes = {
   image: PropTypes.string,
   species: PropTypes.string,
   status: PropTypes.string,
-  name: PropTypes.number,
+  name: PropTypes.string,
 };
 
 export default Character;

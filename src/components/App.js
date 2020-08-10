@@ -116,7 +116,7 @@ App.propTypes = {
   handleFilter: PropTypes.func,
   nameFilter: PropTypes.string,
   speciesFilter: PropTypes.string,
-  deadFilter: PropTypes.string,
+  deadFilter: PropTypes.bool,
   characters: PropTypes.array,
 };
 
