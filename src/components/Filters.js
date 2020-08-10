@@ -2,6 +2,7 @@ import React from 'react';
 import FilterByName from './FilterByName';
 import FilterBySpecies from './FilterBySpecies';
 import FilterByDead from './FilterByDead';
+import PropTypes from 'prop-types';
 import '../stylesheets/Filters.scss';
 
 const Filters = (props) => {
@@ -30,6 +31,13 @@ const Filters = (props) => {
       </form>
     </section>
   );
+};
+
+Filters.propTypes = {
+  handleFilter: PropTypes.func,
+  nameFilter: PropTypes.string,
+  speciesFilter: PropTypes.string,
+  deadFilter: PropTypes.string,
 };
 
 export default Filters;

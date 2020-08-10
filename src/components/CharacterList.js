@@ -1,5 +1,6 @@
 import React from 'react';
 import Character from './Character';
+import PropTypes from 'prop-types';
 import ErrorImage from '../images/error.png';
 import '../stylesheets/CharacterList.scss';
 
@@ -27,6 +28,15 @@ const CharacterList = (props) => {
   ) : (
     <ul className='characters'>{htmlCode}</ul>
   );
+};
+
+CharacterList.propTypes = {
+  key: PropTypes.number,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  species: PropTypes.string,
+  status: PropTypes.string,
 };
 
 export default CharacterList;

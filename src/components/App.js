@@ -6,6 +6,7 @@ import CharacterDetails from './CharacterDetails';
 import { Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import Filters from './Filters';
 import NoMatch from './NoMatch';
+import PropTypes from 'prop-types';
 import '../stylesheets/App.scss';
 
 const App = () => {
@@ -101,6 +102,22 @@ const App = () => {
       </Switch>
     </div>
   );
+};
+
+App.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  species: PropTypes.string,
+  planet: PropTypes.string,
+  status: PropTypes.string,
+  episodes: PropTypes.number,
+  type: PropTypes.string,
+  gender: PropTypes.string,
+  handleFilter: PropTypes.func,
+  nameFilter: PropTypes.string,
+  speciesFilter: PropTypes.string,
+  deadFilter: PropTypes.string,
+  characters: PropTypes.array,
 };
 
 export default App;
